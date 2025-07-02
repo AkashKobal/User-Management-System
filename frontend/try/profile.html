@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Dashboard with Dropdown</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 h-screen overflow-hidden">
+
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <aside class="hidden lg:flex lg:flex-col w-64 bg-slate-900 text-white p-4 space-y-4">
+            <h1 class="text-2xl font-bold">Techways</h1>
+            <a href="#" class="hover:text-indigo-400">🏠 Dashboard</a>
+            <a href="#" class="hover:text-indigo-400">👤 Profile</a>
+            <a href="#" class="hover:text-indigo-400">📋 Tasks</a>
+
+            <!-- Users Dropdown -->
+            <div>
+                <button onclick="document.getElementById('sidebarUsers').classList.toggle('hidden')"
+                    class="w-full text-left hover:text-indigo-400">
+                    👥 Users ▾
+                </button>
+                <div id="sidebarUsers" class="ml-4 mt-1 space-y-1 hidden text-sm">
+                    <a href="#" class="block hover:text-indigo-300">Manage Users</a>
+                    <a href="#" class="block hover:text-indigo-300">Add User</a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Mobile Sidebar Toggle -->
+        <div
+            class="lg:hidden fixed top-0 left-0 w-full bg-slate-900 text-white z-50 flex justify-between items-center px-4 py-3">
+            <h1 class="text-xl font-bold">Techways</h1>
+            <button onclick="document.getElementById('mobileSidebar').classList.toggle('hidden')">
+                ☰
+            </button>
+        </div>
+
+        <!-- Mobile Sidebar Drawer -->
+        <div id="mobileSidebar" class="lg:hidden hidden fixed inset-0 bg-slate-900 text-white z-40 p-4">
+            <div class="flex justify-between items-center mb-4">
+                <h1 class="text-2xl font-bold">Menu</h1>
+                <button onclick="document.getElementById('mobileSidebar').classList.add('hidden')">✕</button>
+            </div>
+            <a href="#" class="block py-2 hover:text-indigo-400">🏠 Dashboard</a>
+            <a href="#" class="block py-2 hover:text-indigo-400">👤 Profile</a>
+            <a href="#" class="block py-2 hover:text-indigo-400">📋 Tasks</a>
+
+            <!-- Mobile Users Dropdown -->
+            <div>
+                <button onclick="document.getElementById('mobileUsers').classList.toggle('hidden')"
+                    class="w-full text-left py-2 hover:text-indigo-400">
+                    👥 Users ▾
+                </button>
+                <div id="mobileUsers" class="ml-4 space-y-1 hidden text-sm">
+                    <a href="#" class="block hover:text-indigo-300">Manage Users</a>
+                    <a href="#" class="block hover:text-indigo-300">Add User</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="flex-1 flex flex-col overflow-y-auto">
+            <!-- Header -->
+            <header class="bg-white shadow p-4 hidden lg:block">
+                <div class="flex justify-between items-center">
+                    <h2 class="text-2xl font-semibold text-gray-800">Dashboard</h2>
+                    <nav class="space-x-4 text-gray-600 relative">
+                        <a href="#" class="hover:text-indigo-500">Home</a>
+
+                        <!-- Admin Dropdown -->
+                        <div class="inline-block relative">
+                            <button onclick="document.getElementById('adminDropdown').classList.toggle('hidden')"
+                                class="hover:text-indigo-500">
+                                Admin ▾
+                            </button>
+                            <div id="adminDropdown"
+                                class="absolute right-0 mt-2 w-40 bg-white shadow-lg border rounded hidden text-sm text-gray-700">
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Settings</a>
+                                <a href="#" class="block px-4 py-2 hover:bg-gray-100">Permissions</a>
+                            </div>
+                        </div>
+
+                        <a href="#" class="hover:text-indigo-500">Profile</a>
+                        <a href="#" class="hover:text-red-500">Logout</a>
+                    </nav>
+                </div>
+            </header>
+
+            <!-- Main Content -->
+            <main class="p-4 sm:p-6 md:p-8 ">
+                <div class="bg-white p-6 rounded-lg shadow-md max-w-8xl mx-auto">
+                    <h3 class="text-2xl font-bold mb-4">My Profile</h3>
+                    <p><strong>Name:</strong> John Doe</p>
+                    <p><strong>Email:</strong> john@example.com</p>
+                    <p><strong>Role:</strong> Admin</p>
+                    <p><strong>Active:</strong> Yes</p>
+                    <p><strong>Created At:</strong> June 29, 2025</p>
+
+                    <div class="mt-6 flex flex-col sm:flex-row gap-4">
+                        <button class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded">
+                            Change Password
+                        </button>
+                        <button class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded">
+                            Verify Email
+                        </button>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+</body>
+
+</html>
